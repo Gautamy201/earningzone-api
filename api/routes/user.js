@@ -26,33 +26,31 @@ router.get("/", (req, res, next) => {
     });
 });
 router.post("/", (req, res, next) => {
-  const file = req.files.photo;
-  cloudinary.uploader.upload(file.tempFilePath, (err, img) => {
-    const user = new User({
-      _id: new mongoose.Types.ObjectId(),
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      userId: req.body.userId,
-      email: req.body.email,
-      password: req.body.password,
-      img: img.url,
-    });
-
-    user
-      .save()
-      .then((result) => {
-        console.log(result);
-        res.status(200).json({
-          newUser: result,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json({
-          error: err,
-        });
-      });
+  const user = new User({
+    _id: new mongoose.Types.ObjectId(),
+    date: new Date().toLocaleDateString(),
+    time: new Date().toLocaleTimeString(),
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    userId: req.body.userId,
+    email: req.body.email,
+    password: req.body.password,
   });
+
+  user
+    .save()
+    .then((result) => {
+      console.log(result);
+      res.status(200).json({
+        newUser: result,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({
+        error: err,
+      });
+    });
 });
 
 router.get("/:user_id", (req, res, next) => {
