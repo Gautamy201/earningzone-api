@@ -28,13 +28,13 @@ router.get("/", (req, res, next) => {
 router.post("/", (req, res, next) => {
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
-    date: new Date().toLocaleDateString(),
-    time: new Date().toLocaleTimeString(),
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     userId: req.body.userId,
     email: req.body.email,
     password: req.body.password,
+    mobileNo: req.body.mobileNo,
+    promoCode: req.body.promoCode,
   });
 
   user

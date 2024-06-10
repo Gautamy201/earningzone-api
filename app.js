@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+app.use(cors());
 const userRoutes = require("./api/routes/user");
 
 const mongoose = require("mongoose");
@@ -7,7 +9,7 @@ const bodyParser = require("body-parser");
 const fileUplode = require("express-fileupload");
 
 mongoose.connect(
-  "mongodb+srv://gautamy123:Gautamy123@tornament.msfoakm.mongodb.net/?retryWrites=true&w=majority&appName=Tornament"
+  "mongodb+srv://gautamy123:Gautamy123@tornament.msfoakm.mongodb.net/gautamy123?retryWrites=true&w=majority&appName=Tornament"
 );
 mongoose.connection.on("error", (err) => {
   console.log("connection error");
