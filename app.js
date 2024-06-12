@@ -4,6 +4,7 @@ const cors = require("cors");
 app.use(cors());
 const userRoutes = require("./api/routes/user");
 const matchesRouter = require("./api/routes/matches");
+const adminRouter = require("./api/routes/admin");
 
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -32,6 +33,8 @@ app.use(bodyParser.json());
 app.use("/user", userRoutes);
 
 app.use("/matches", matchesRouter);
+
+app.use("/admin", adminRouter);
 
 app.use((req, res, next) => {
   res.status(400).json({
