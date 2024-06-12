@@ -98,6 +98,9 @@ router.put("/:user_id", (req, res, next) => {
         userId: req.body.userId,
         email: req.body.email,
         password: req.body.password,
+        mobileNo: req.body.mobileNo,
+        dateOfBirth: req.body.dateOfBirth,
+        gender: req.body.gender,
       },
     }
   )

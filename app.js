@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 const userRoutes = require("./api/routes/user");
+const matchesRouter = require("./api/routes/matches");
 
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -29,6 +30,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use("/user", userRoutes);
+
+app.use("/matches", matchesRouter);
 
 app.use((req, res, next) => {
   res.status(400).json({
