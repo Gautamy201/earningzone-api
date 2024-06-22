@@ -30,11 +30,10 @@ router.post("/", (req, res, next) => {
     _id: new mongoose.Types.ObjectId(),
     firstName: req.body.firstName,
     lastName: req.body.lastName,
-    userId: req.body.userId,
     email: req.body.email,
     password: req.body.password,
     mobileNo: req.body.mobileNo,
-    promoCode: req.body.promoCode,
+    referCode: req.body.referCode,
   });
 
   user
@@ -95,7 +94,6 @@ router.put("/:user_id", (req, res, next) => {
       $set: {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        userId: req.body.userId,
         email: req.body.email,
         password: req.body.password,
         mobileNo: req.body.mobileNo,

@@ -6,11 +6,10 @@ const userSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   firstName: String,
   lastName: String,
-  userId: String,
   email: String,
   password: String,
   mobileNo: String,
-  prmoCode: String,
+  referCode: String,
   createAt: {
     type: Date,
     default: Date.now,
