@@ -4,6 +4,13 @@ const User = require("../model/user");
 const mongoose = require("mongoose");
 const cloudinary = require("cloudinary").v2;
 
+const rendomNo = Math.floor(Math.random() * 10 + 1 * 2);
+let redomNoGenrater = String(Date.now());
+redomNoGenrater = redomNoGenrater.split("");
+redomNoGenrater = redomNoGenrater.reduce(
+  (pre, cur) => Number(pre) + Number(cur)
+);
+
 cloudinary.config({
   cloud_name: "drrztlamo",
   api_key: "578784667688752",
@@ -34,6 +41,7 @@ router.post("/", (req, res, next) => {
     password: req.body.password,
     mobileNo: req.body.mobileNo,
     referCode: req.body.referCode,
+    userId: `@${req.body.firstName}_${redomNoGenrater * rendomNo}`,
   });
 
   user
