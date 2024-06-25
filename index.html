@@ -7,17 +7,14 @@
   </head>
   <body>
     <script>
-      const rendonNo = Math.floor(Math.random() * 10 + 1 * 2);
+      const rendonNo = Math.floor(Math.random() * 1000 + 1 * 2);
       let redomNoGenrater = String(Date.now());
       console.log(rendonNo);
       redomNoGenrater = redomNoGenrater.split("");
       redomNoGenrater = redomNoGenrater.reduce(
         (pre, cur) => Number(pre) + Number(cur)
       );
-      const gau = "2024-06-25T15:47:43.217Z";
-
-      let arr = new Date(gau).toLocaleDateString();
-      console.log(arr);
+      console.log(redomNoGenrater * rendonNo);
     </script>
   </body>
 </html>

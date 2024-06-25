@@ -4,12 +4,7 @@ const User = require("../model/user");
 const mongoose = require("mongoose");
 const cloudinary = require("cloudinary").v2;
 
-const rendomNo = Math.floor(Math.random() * 10 + 1 * 2);
-let redomNoGenrater = String(Date.now());
-redomNoGenrater = redomNoGenrater.split("");
-redomNoGenrater = redomNoGenrater.reduce(
-  (pre, cur) => Number(pre) + Number(cur)
-);
+const rendomNo = Math.floor(Math.random() * 1000 + 1 * 2);
 
 cloudinary.config({
   cloud_name: "drrztlamo",
@@ -32,6 +27,12 @@ router.get("/", (req, res, next) => {
       });
     });
 });
+
+let redomNoGenrater = String(Date.now());
+redomNoGenrater = redomNoGenrater.split("");
+redomNoGenrater = redomNoGenrater.reduce(
+  (pre, cur) => Number(pre) + Number(cur)
+);
 router.post("/", (req, res, next) => {
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
@@ -41,7 +42,12 @@ router.post("/", (req, res, next) => {
     password: req.body.password,
     mobileNo: req.body.mobileNo,
     referCode: req.body.referCode,
-    userId: `@${req.body.firstName}_${redomNoGenrater * rendomNo}`,
+    userId: `@${req.body.firstName}_${
+      String(Date.now())
+        .split("")
+        .reduce((pre, cur) => Number(pre) + Number(cur)) *
+      Math.floor(Math.random() * 1000 + 1 * 2)
+    }`,
   });
 
   user
