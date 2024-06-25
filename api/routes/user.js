@@ -94,9 +94,7 @@ router.put("/:user_id", (req, res, next) => {
       $set: {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email,
         password: req.body.password,
-        mobileNo: req.body.mobileNo,
         dateOfBirth: req.body.dateOfBirth,
         gender: req.body.gender,
       },

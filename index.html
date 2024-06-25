@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const rendonNo = Math.floor(Math.random() * 10 + 1 * 2);
+      let redomNoGenrater = String(Date.now());
+      console.log(rendonNo);
+      redomNoGenrater = redomNoGenrater.split("");
+      redomNoGenrater = redomNoGenrater.reduce(
+        (pre, cur) => Number(pre) + Number(cur)
+      );
+      console.log(redomNoGenrater * rendonNo);
+    </script>
+  </body>
+</html>

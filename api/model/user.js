@@ -1,6 +1,14 @@
 const mongoose = require("mongoose");
 
-const setDate = new Date();
+const rendonNo = Math.floor(Math.random() * 10 + 1 * 2);
+let redomNoGenrater = String(Date.now());
+console.log(rendonNo);
+redomNoGenrater = redomNoGenrater.split("");
+redomNoGenrater = redomNoGenrater.reduce(
+  (pre, cur) => Number(pre) + Number(cur)
+);
+
+const setDate = new Date(2000, 1, 1, 12).toLocaleDateString;
 
 const userSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
@@ -10,13 +18,17 @@ const userSchema = new mongoose.Schema({
   password: String,
   mobileNo: String,
   referCode: String,
+  userId: {
+    type: String,
+    default: "@" + "firstName" + "_" + redomNoGenrater,
+  },
   createAt: {
     type: Date,
     default: Date.now,
   },
   dateOfBirth: {
     type: Date,
-    default: setDate.setFullYear(2000, 0, 1),
+    default: setDate,
   },
   gender: {
     type: String,
